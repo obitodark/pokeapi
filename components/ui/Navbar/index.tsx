@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import { ContainerDrawer } from './ContainerDrawer';
 import { useBoolean } from '@/hook/useBoolean';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -41,8 +41,8 @@ export const NavBar = () => {
             
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
              
-                <Button onClick={() => router.push('/favorites')} sx={{ color: '#fff' }}>
-                 Favoritos
+                <Button sx={{ color: '#fff' }}>
+                <Link href={'/favorites'} passHref>favorites</Link>
                 </Button>
         
             </Box>

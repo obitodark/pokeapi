@@ -13,7 +13,7 @@ const FavoritesPage :NextPage <Props>= ({pokemons}) => {
   const [pokeFavorites,setPokeFavorites] = useState<smallPokemon[]>([])
   useEffect(()=>{
    setPokeFavorites(localFavorites.getPokemonFavorites(pokemons))
-  },[pokemons])
+  },[])
 
  return (
    
@@ -38,8 +38,9 @@ const FavoritesPage :NextPage <Props>= ({pokemons}) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
-  const { data } = await pokeApi.get<PokemomList>('/pokemon?limit=150')
-  // console.log('ga',data);
+  const { data } = await pokeApi.get<PokemomList>('/pokemon?limit=600')
+  console.log('ga',data
+  );
   const pokemons: smallPokemon[] = data.results.map((poke, i) => ({
     ...poke,
     id: i + 1,

@@ -1,6 +1,6 @@
 
 import { FC, useState } from 'react';
-import {Card, Box, CardContent, Typography, Button, CardMedia, Grid} from '@mui/material'
+import {Card, Box, CardContent, Typography, Button, CardMedia, Grid ,Stack} from '@mui/material'
 import { Pokemon } from '../../interface';
 import { localFavorites } from '@/utils';
 
@@ -31,18 +31,22 @@ export const DetailPokemon:FC <Props>= ({pokemon}) => {
   return (
     <Card elevation={0}   sx={{ display: 'flex', background:'transparent'}}>
          
-     <Grid container spacing={5}> 
+     <Stack  direction={{ xs: 'column', sm: 'row' , md:'row' , lg:'row'}}spacing={2}> 
       <Grid item xs={12} sm={12} md={3} sx={{  borderRadius:'15px' ,background:'#121212'}}>
         <CardMedia
           
           component="img"
-          sx={{ width: 250, padding:'15px'}}
+          sx={{padding:'15px'}}
+          width={10}
           image={`${pokemon.sprites.other?.dream_world.front_default}`}
           alt="Live from space album cover"
         />
+         <Button  fullWidth sx={{textTransform:'capitalize'}} color='secondary' onClick={handlerToggleFavorites} variant={`${isInFavorites ? 'contained' :'outlined'}`}>
+            {isInFavorites ? 'en Favoritos':'Guadar en favoritos'}
+            </Button>
         </Grid>
 
-    <Grid item xs={12} sm={12} md={9} sx={{  borderRadius:'15px' ,background:'#121212'}}> 
+    <Grid item xs={12} sm={12} md={9}  sx={{  borderRadius:'15px' ,background:'#121212'}}> 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -60,14 +64,12 @@ export const DetailPokemon:FC <Props>= ({pokemon}) => {
               {pokemon.flavor_text_entries[index].flavor_text}
             </Typography>
           ))}
-          <Button sx={{textTransform:'capitalize'}} color='secondary' onClick={handlerToggleFavorites} variant={`${isInFavorites ? 'contained' :'outlined'}`}>
-            {isInFavorites ? 'en Favoritos':'Guadar en favoritos'}
-            </Button>
+          
         </CardContent>
         
       </Box>
     </Grid>
-     </Grid>
+     </Stack>
    
   </Card>
   )

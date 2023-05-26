@@ -1,5 +1,7 @@
+
 import pokeApi from "@/services/pokeApi"
-import {Pokemon,PokemonSpecie} from '../interface'
+import {Pokemon, PokemonSpecie, PokemomList ,smallPokemon} from '../interface'
+
 
 export const getPokemonInfo =async (nameId :string) => {
     try {
@@ -14,4 +16,19 @@ export const getPokemonInfo =async (nameId :string) => {
         return null
     }
 
+}
+
+export const loadPokemon = async(offset:number,) => {
+    try {
+        const {data} = await pokeApi.get<PokemomList>(`/pokemon/?offset=${offset}&limit=${150}?language=es`)
+        const pokemons: smallPokemon[] = data.results.map((poke, i) => ({
+            ...poke,
+            id: i + 1,
+            img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i + 1}.svg`
+          }));
+        return pokemons
+    
+    } catch (error) {
+        return null
+    }
 }

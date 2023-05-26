@@ -3,12 +3,14 @@ import {Card, Box, CardContent, CardMedia, Typography} from '@mui/material'
 import { smallPokemon } from '../../interface/pokeApiResponse';
 import { useBoolean } from '@/hook/useBoolean';
 import { useRouter } from 'next/router';
-import style from './itemCard.module.css'
+import { PokekmonService } from '@/utils/classPokemon';
+
 interface Props  {
-    pokemon: smallPokemon
+    pokemon: smallPokemon,
+  
   }
 
-
+  export const pokemonservice= new PokekmonService(100)
 export const ItemCard:FC<Props> = ({pokemon}) => {
     const [hover, noHover, status ] = useBoolean()
     const router = useRouter()
@@ -27,7 +29,6 @@ export const ItemCard:FC<Props> = ({pokemon}) => {
         
         sx={{
           display: 'flex' ,
-        
           justifyContent:'space-between' ,
           background:'#1A2027',
           border:'1px solid #204E7E' ,
@@ -57,7 +58,7 @@ export const ItemCard:FC<Props> = ({pokemon}) => {
              component="img"
              sx={{  width:'auto' ,height:120 ,transform:status? 'scale(1.2)' : 'scale(1)',  transition:'all ease-in .2s'}}
              image={pokemon.img}
-             alt="Live from space album cover"
+             alt="image_pokemon"
              />
            {/* </Box> */}
             {/* </Box> */}

@@ -7,10 +7,10 @@ export const useBoolean= () => {
 const  [status,setStatus] = useState<boolean>(false )
 
 const isTrue = () => {
-    setStatus(true)
+   return setStatus(true)
 }
 const isFalse = () => {
-    setStatus(false)
+   return setStatus(false)
 }
 return [isTrue, isFalse, status] as const
 

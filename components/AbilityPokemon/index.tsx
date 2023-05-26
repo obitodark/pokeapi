@@ -21,7 +21,7 @@ const AbilityPokemon:FC<Props> = ({abilitys, weight, height, base_experience}) =
         </Typography>
         {abilitys.map((ability,index) => (
             <Typography variant='subtitle1' color={'secondary'} key={index}>
-                #{index+1}{ ability.ability.name}
+                #{index+1+' '}{ ability.ability.name}
             </Typography>
         ))}
         </Grid>
@@ -31,10 +31,10 @@ const AbilityPokemon:FC<Props> = ({abilitys, weight, height, base_experience}) =
         </Typography>
         
             <Typography variant='subtitle1' color={'secondary'} >
-                Peso :{ weight}
+                Peso :{ weight/10} Kg
             </Typography>
             <Typography variant='subtitle1' color={'secondary'} >
-               Altura :{ height}
+               Altura :{ height*10} Cm
             </Typography>
             <Typography variant='subtitle1' color={'secondary'} >
                Experiencia_base :{ base_experience}

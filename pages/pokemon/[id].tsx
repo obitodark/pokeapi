@@ -4,7 +4,7 @@ import React from 'react'
 import {NextPage, GetStaticProps, GetStaticPaths} from 'next'
 
 import { Pokemon} from '@/interface'
-import {Grid, Container, Box} from '@mui/material'
+import {Grid, Container, Box, Stack} from '@mui/material'
 import { DetailPokemon, SpritesPokemon } from '@/components'
 import RadarChart from '@/components/RadarChart'
 import AbilityPokemon from '@/components/AbilityPokemon'
@@ -41,7 +41,8 @@ pokemon:Pokemon
           <RadarChart stats={pokemon.stats} />
         </Box>
       </Grid>
-      <Grid container  item xs ={12} sm={12} lg={8} sx={{display:'flex',alignContent:'start'}}>
+      <Grid item xs={12} sm={12} lg={8}>
+      <Stack    spacing={2} sx={{display:'flex',alignContent:'start'}}>
         <Grid item xs={12}>
           <SpritesPokemon images={images}/>
         </Grid>
@@ -54,7 +55,9 @@ pokemon:Pokemon
             
             />
         </Grid>
+      </Stack>
       </Grid>
+      
    
      
     </Grid>

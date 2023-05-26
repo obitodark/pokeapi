@@ -8,7 +8,7 @@ interface Images {
 export const SpritesPokemon :FC <Images>= ({images}) => {
   return (
     <>
-    <Grid  m={1} container sx={{background:'#121212', borderRadius:'15px'}}>
+    <Grid   container sx={{background:'#121212', borderRadius:'15px'}}>
      <Typography  p={2} variant='h6'>
       Sprites
      </Typography>

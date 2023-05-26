@@ -26,6 +26,7 @@ const getPokemonFavorites = (pokemons:smallPokemon[]) => {
 
 const favoritesId:number[] = JSON.parse(localStorage.getItem('favorites') || '[]')
 const filter = pokemons.filter(item=> favoritesId.includes(item.id))
+console.log(pokemons)
 return filter
 }
 export  const localFavorites= {
