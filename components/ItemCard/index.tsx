@@ -29,6 +29,7 @@ export const ItemCard:FC<Props> = ({pokemon}) => {
         
         sx={{
           display: 'flex' ,
+          flexDirection:{xs:'column',sm:'row'},
           justifyContent:'space-between' ,
           background:'#1A2027',
           border:'1px solid #204E7E' ,
@@ -42,10 +43,10 @@ export const ItemCard:FC<Props> = ({pokemon}) => {
             }}
             >
             {/* <Box> */}
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                 <CardContent sx={{ flex: '1 0 auto' }}>
-                 <Typography component="div" variant="h5">
-                     #{pokemon.id}
+            <Box sx={{ display: 'flex',}}>
+                 <CardContent sx={{display: 'flex' , flexDirection: {xs:'row',sm:'column'} }}>
+                 <Typography component="div" variant="h6">
+                     #{`${pokemon.id } `}
                  </Typography>
                  <Typography variant="subtitle1" color="text.secondary" component="div">
                      {pokemon.name}
@@ -56,7 +57,7 @@ export const ItemCard:FC<Props> = ({pokemon}) => {
            {/* <Box > */}
            <CardMedia
              component="img"
-             sx={{  width:'auto' ,height:120 ,transform:status? 'scale(1.2)' : 'scale(1)',  transition:'all ease-in .2s'}}
+             sx={{  width:{xs:'auto',sm:'auto'} ,height:{xs:'auto',sm:120} ,transform:status? 'scale(1.2)' : 'scale(1)',  transition:'all ease-in .2s'}}
              image={pokemon.img}
              alt="image_pokemon"
              />

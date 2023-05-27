@@ -32,8 +32,10 @@ export const NavBar = () => {
             >
               <MenuIcon />
             </IconButton>
-           
+            <Link href={'/'} passHref>
             <img src='https://www.pngplay.com/wp-content/uploads/2/Pokeball-PNG-Pic-Background.png'  width={45} alt='logo'/>
+            </Link>
+        
             <Box p={1} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             <Link href={'/'} passHref>Pokemon</Link>
             </Box>

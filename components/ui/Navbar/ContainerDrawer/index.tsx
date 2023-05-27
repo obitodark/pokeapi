@@ -1,4 +1,6 @@
+
 import {Drawer, Box, Typography, List, ListItem, ListItemButton, ListItemText ,Divider} from '@mui/material'
+import Link from 'next/link';
 
 interface Props {
     open:boolean,
@@ -28,7 +30,8 @@ export const ContainerDrawer = ({open, close, textItem}:Props) => {
             {/* {navItems.map((item) => ( */}
             <ListItem  disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={textItem} />
+                {/* <ListItemText primary={textItem} /> */}
+                <Link href={'/favorites'} passHref>favorites</Link>
                 </ListItemButton>
             </ListItem>
             {/* ))} */}

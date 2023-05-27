@@ -104,7 +104,7 @@ import { PokekmonService } from '@/utils/classPokemon';
     
         <Grid container spacing={1.5} mt={1}  >
         {pokemonList.map((pokemon) => (
-            <Grid  item key={pokemon.id} xs={12} sm={4}  md={3} lg={2.4} xl={2} >  
+            <Grid  item key={pokemon.id} xs={6} sm={4}  md={3} lg={2.4} xl={2} >  
             <ItemCard  pokemon={pokemon}  />
             
         </Grid>
