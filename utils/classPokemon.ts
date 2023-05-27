@@ -5,15 +5,15 @@ export class PokekmonService{
 private BaseUrlImg :string ;
 private limit :number ;
 private offset: number;
-private listPokemons:smallPokemon[];
-// private static offset: number=0 ;
+
+
 
 
 constructor (limit:number = 20){
     this.BaseUrlImg='https://raw.githubusercontent.com/PokeAPI'
     this.limit=limit;
     this.offset = 0;
-    this.listPokemons=[]
+  
     
 }
 async getPokemonList() {

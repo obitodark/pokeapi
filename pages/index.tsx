@@ -49,19 +49,13 @@ import { PokekmonService } from '@/utils/classPokemon';
                
                 fetchMoreData();
                  notLoading()
-              });
-            
+              })    
         }
-       
-       
-        //     return () => {
-        // window.removeEventListener('scroll', handleScroll);
-        // };
+            return () => {
+        window.removeEventListener('scroll', handleScroll);
+        };
         
     };
-
-
-    
 
     useEffect(()=>{
       
@@ -71,51 +65,38 @@ import { PokekmonService } from '@/utils/classPokemon';
             isTrue()
         } else {
             isFalse()
-        }    
-       } 
-       btnArrow()
-    
+        }  } 
+       btnArrow() 
     },[status])
 
     useEffect(()=>{
         fetchMoreData(); 
-     
-    
     },[])
     
-  
-
     return (
         <>
-
         <Container id="scrollableDiv" maxWidth='xl'  >
-        <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={load}
-      >
-        <CircularProgress color="inherit" />
-        <Typography mx={1}>Cargando...</Typography>
-      </Backdrop>
-            <Typography mb={1} variant="h4" color="initial">
-                Lista de Pokemons
-            </Typography>
-        
-        <Divider/>
-    
-        <Grid container spacing={1.5} mt={1}  >
-        {pokemonList.map((pokemon) => (
-            <Grid  item key={pokemon.id} xs={6} sm={4}  md={3} lg={2.4} xl={2} >  
-            <ItemCard  pokemon={pokemon}  />
+         <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={load}
+            > 
+            <CircularProgress color="inherit" />
+            <Typography mx={1}>Cargando...</Typography>
+         </Backdrop>
+         <Typography mb={1} variant="h4" color="initial">
+                    Lista de Pokemons
+         </Typography>
             
+          <Divider/>
+        
+         <Grid container spacing={1.5} mt={1}  >
+            {pokemonList.map((pokemon) => (
+                <Grid  item key={pokemon.id} xs={6} sm={4}  md={3} lg={2.4} xl={2} >  
+                    <ItemCard  pokemon={pokemon}  />  
+                </Grid>
+                ))}
         </Grid>
-        ))}
-        </Grid>
-       
-
-
-    
         <Button variant='contained' sx={{position:'fixed' ,right:'50px',bottom:'50px'}} onClick={toTop}><ArrowUpwardIcon/></Button>
-         
         </Container>
             
         </>

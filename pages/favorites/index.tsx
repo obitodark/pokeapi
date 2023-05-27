@@ -5,6 +5,7 @@ import { ItemCard } from '@/components';
 import { useEffect, useState } from 'react';
 import pokeApi from '@/services/pokeApi';
 import { localFavorites } from '@/utils';
+import { PokekmonService } from '@/utils/classPokemon';
 
 type Props = {
     pokemons: smallPokemon[]
@@ -23,7 +24,7 @@ const FavoritesPage :NextPage <Props>= ({pokemons}) => {
       </Typography>
       <Grid container spacing={1.5}  >
       {pokeFavorites.map((pokemon) => (
-        <Grid  item key={pokemon.id} xs={12} sm={4}  md={3} lg={2.4} xl={2} >  
+        <Grid  item key={pokemon.id} xs={6} sm={4}  md={3} lg={2.4} xl={2} >  
         <ItemCard  pokemon={pokemon} />
          
      </Grid>
@@ -37,16 +38,8 @@ const FavoritesPage :NextPage <Props>= ({pokemons}) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-
-  const { data } = await pokeApi.get<PokemomList>('/pokemon?limit=600')
-  console.log('ga',data
-  );
-  const pokemons: smallPokemon[] = data.results.map((poke, i) => ({
-    ...poke,
-    id: i + 1,
-    img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i + 1}.svg`
-  }));
-
+const listPokemons = new PokekmonService(649)
+const pokemons = await listPokemons.getPokemonList()
   return {
     props: {
       pokemons
